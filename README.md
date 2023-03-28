@@ -36,5 +36,7 @@ $ npm run build
 
 ## 贡献规范
 - 基于master创建分支，分支名称feature/xxx
-- 代码遵循eslint、styleslint规范
+- 代码遵循eslint、stylelint规范
+- 组件开发详情见Demo组件
+- 文档编写见dumi官网https://d.umijs.org/guide
 
