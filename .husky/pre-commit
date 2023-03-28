@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+if [[ `git status --porcelain` ]]; then
+  echo "Run Lint"
+  npm run lint-staged
+fi
