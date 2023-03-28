@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+if [[ `git status --porcelain` ]]; then
+  echo "Found changes in admin"
+  cd admin
+  npm run lint-staged
+  npm run static-check
+  cd ..
+fi

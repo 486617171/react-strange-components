@@ -10,7 +10,9 @@
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lint-staged": "lint-staged",
+    "static-check": "tsc"
   },
   "files": [
     "dist"
