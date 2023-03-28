@@ -18,6 +18,11 @@
   ],
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -42,8 +47,8 @@
     "@umijs/test": "^3.0.5",
     "dumi": "^1.1.0",
     "father": "^4.0.0-rc.2",
+    "husky": "^8.0.3",
     "lint-staged": "^10.0.7",
-    "prettier": "^2.2.1",
-    "yorkie": "^2.0.0"
+    "prettier": "^2.2.1"
   }
 }

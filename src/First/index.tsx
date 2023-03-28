@@ -11,6 +11,7 @@ type DemoProps = {
 // 这是一个demo
 export default ({ title }: DemoProps) => {
   const a = 1;
-  const fun =()=> <>333</>;
+  console.log(b);
+  const fun =()=> <>4444</>;
   return <h1>{title}</h1>;
 };
