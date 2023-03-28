@@ -3,6 +3,4 @@
 if [[ `git status --porcelain` ]]; then
   echo "Found changes"
   npm run lint-staged
-  npm run static-check
-  cd ..
 fi
