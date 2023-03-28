@@ -42,5 +42,5 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           REPOSITORY_NAME: 486617171/react-strange-components
-          BRANCH: master
-          FOLDER: ./docs-dist
+          BRANCH: gh-page
+          FOLDER: ./
