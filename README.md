@@ -33,3 +33,8 @@ $ npm test
 ```bash
 $ npm run build
 ```
+
+## 贡献规范
+- 基于master创建分支，分支名称feature/xxx
+- 代码遵循eslint、styleslint规范
+
