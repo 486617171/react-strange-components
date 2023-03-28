@@ -41,6 +41,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          REPOSITORY_NAME: 486617171/486617171.github.io
+          REPOSITORY_NAME: react-strange-components
           BRANCH: master
           FOLDER: ./docs-dist
