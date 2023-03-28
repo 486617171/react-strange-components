@@ -1,5 +1,14 @@
 import { defineConfig } from 'dumi';
 
+// 此处更换为自己的仓库名
+let base: string | undefined = undefined;
+let publicPath: string | undefined = undefined;
+
+if (process.env.SITE_BUILD_ENV === 'PROD') {
+  base = '/react-strange-components/docs-dist';
+  publicPath = '/react-strange-components/docs-dist/';
+}
+
 export default defineConfig({
   title: 'Strange',
   favicon:
@@ -15,4 +24,6 @@ export default defineConfig({
     // 配置入口文件路径，API 解析将从这里开始
     entryFile: './src/index.ts',
   },
+  base,
+  publicPath,
 });
