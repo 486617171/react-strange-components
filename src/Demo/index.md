@@ -15,7 +15,7 @@ group:
 import React from 'react';
 import { Demo } from 'react-strange-components';
 
-export default () => <Demo title="First Demo5" />;
+export default () => <Demo title="First Demo6" />;
 ```
 <!-- 自动生成API表格 -->
 <API id="Demo"></API>
