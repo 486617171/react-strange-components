@@ -1,50 +1,19 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: github pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ['master']
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+    branches:
+      - master # default branch
 
 jobs:
-  # Deployment job
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.19.0]
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Build
-        run: npm install && npm run docs:build
-      - run: |
-          git config user.name 486617171
-          git config user.email 486617171@qq.com
-          npm version patch -m "[RELEASE] %s"
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run docs:build
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          REPOSITORY_NAME: 486617171/react-strange-components
-          BRANCH: gh-page
-          FOLDER: ./
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
