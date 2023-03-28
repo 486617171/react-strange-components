@@ -13,7 +13,7 @@ group:
 ### 代码演示
 ```tsx
 import React from 'react';
-import { Demo } from 'react-strange-component';
+import { Demo } from 'react-strange-components';
 
 export default () => <Demo title="First Demo5" />;
 ```
