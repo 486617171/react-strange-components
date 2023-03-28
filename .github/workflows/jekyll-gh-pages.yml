@@ -35,8 +35,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Git
-        run: git config user.name && git config user.password && git config user.email
       - name: Build
         run: npm install && npm run docs:build
       - name: Deploy
