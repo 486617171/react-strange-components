@@ -11,8 +11,7 @@
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
     "prepublishOnly": "npm run build",
-    "lint-staged": "lint-staged",
-    "static-check": "tsc"
+    "lint-staged": "lint-staged"
   },
   "files": [
     "dist"
