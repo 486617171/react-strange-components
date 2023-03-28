@@ -1,6 +1,6 @@
 {
-  "name": "react-strange-component",
-  "version": "1.0.1",
+  "name": "react-strange-components",
+  "version": "0.0.1",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "cross-env SITE_BUILD_ENV=PROD dumi build",
