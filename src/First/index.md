@@ -1,6 +1,6 @@
 ---
-title: Demo 组件
-order: 1
+title: 第一个组件
+order: 2
 group:
   title: 组件
 ---
@@ -17,11 +17,11 @@ group:
 
 ```tsx
 import React from 'react';
-import { Demo } from 'react-strange-components';
+import { First } from 'react-strange-components';
 
-export default () => <Demo title="First" />;
+export default () => <First title="First" />;
 ```
 
 <!-- 自动生成API表格 -->
 
-<API id="Demo"></API>
+<API id="First"></API>

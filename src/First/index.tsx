@@ -10,5 +10,5 @@ type DemoProps = {
 
 // 这是一个demo
 export default ({ title }: DemoProps) => {
-  return <h1>{title}</h1>;
+  return <h2>{title}</h2>;
 };
