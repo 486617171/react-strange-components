@@ -18,11 +18,6 @@
   ],
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint-staged"
-    }
-  },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -37,6 +32,7 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "gh-pages": "^5.0.0",
+    "pre-commit": "^1.2.2",
     "react": "^18.0.0"
   },
   "devDependencies": {
@@ -48,7 +44,7 @@
     "dumi": "^1.1.0",
     "father": "^4.0.0-rc.2",
     "husky": "^8.0.3",
-    "lint-staged": "^10.0.7",
+    "lint-staged": "^10.5.4",
     "prettier": "^2.2.1"
   }
 }

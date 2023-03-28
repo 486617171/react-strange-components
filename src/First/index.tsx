@@ -12,6 +12,6 @@ type DemoProps = {
 export default ({ title }: DemoProps) => {
   const a = 1;
   console.log(b);
-  const fun =()=> <>4444</>;
+  const fun =()=> <>222</>;
   return <h1>{title}</h1>;
 };
