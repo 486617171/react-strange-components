@@ -1,4 +1,5 @@
 import React from 'react';
+import TimePeriodSelector from './timePeriodSelector/index';
 
 type DemoProps = {
   /**
@@ -10,5 +11,12 @@ type DemoProps = {
 
 // 这是一个demo
 export default ({ title }: DemoProps) => {
-  return <h2>{title}</h2>;
+  return (
+    <TimePeriodSelector
+      value={[]}
+      onChange={(val) => {
+        console.log(val);
+      }}
+    />
+  );
 };
