@@ -5,15 +5,15 @@ group:
   title: 组件
 ---
 
-## Demo 组件名称
+# Demo 组件名称
 
 描述组件的作用。
 
-### 何时使用
+## 何时使用
 
 介绍组件使用场景
 
-### 代码演示
+## 代码演示
 
 ```tsx
 import React from 'react';
