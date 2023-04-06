@@ -1,6 +1,6 @@
 {
   "name": "react-strange-components",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "cross-env SITE_BUILD_ENV=PROD dumi build",
@@ -12,11 +12,16 @@
     "test:coverage": "umi-test --coverage",
     "prepublishOnly": "npm run build",
     "lint-staged": "lint-staged",
-    "prepare": "husky install ./.husky"
+    "prepare": "husky install ./.husky",
+    "publish": "npm publish"
   },
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/486617171/react-strange-components.git"
+  },
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
   "gitHooks": {

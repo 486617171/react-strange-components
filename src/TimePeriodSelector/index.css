@@ -1,0 +1,9 @@
+.selectableGroup {
+  user-select: none;
+}
+
+.selectableGroup .selectable-selectbox {
+  background: none;
+  border: 1px dashed grey;
+  cursor: default;
+}

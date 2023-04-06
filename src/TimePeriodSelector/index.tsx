@@ -1,7 +1,7 @@
 import React, { LegacyRef, useEffect, useRef, useState } from 'react';
 import { SelectableGroup } from 'react-selectable-fast';
 import List from './List';
-import styles from './index.less';
+import './index.css';
 import { SelectableGroupValue } from './index.type';
 import { isArray, isInteger, isNumber, uniq } from 'lodash';
 import { useDeepCompareEffect } from 'ahooks';
@@ -68,7 +68,7 @@ export default (props: TimePeriodSelectorProps) => {
     // @ts-ignore
     <SelectableGroup
       style={style}
-      className={cs(styles.selectableGroup, className)}
+      className={cs('selectableGroup', className)}
       enableDeselect
       onSelectionFinish={onSelectionFinish}
     >
