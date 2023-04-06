@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { TimePeriodSelectorProps } from '..';
 import { SelectableGroupValue } from '../index.type';
 import Item from '../Item';
-import styles from './index.less';
+import './index.css';
 
 type Props = {
   value: SelectableGroupValue;
@@ -33,20 +33,20 @@ const List = ({ value, selectedColor }: Props) => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={styles.left}>
+    <div className="container">
+      <div className="wrapper">
+        <div className="left">
           {weeks.map((item) => (
             <div key={item}>{item}</div>
           ))}
         </div>
-        <div className={styles.right}>
-          <div className={styles.timeTips}>
+        <div className="right">
+          <div className="timeTips">
             {timeTips.map((item) => (
               <div key={item}>{item}:00</div>
             ))}
           </div>
-          <div className={styles.list}>
+          <div className="list">
             {data.map((i) => (
               <Item key={i} value={i} selected={value.includes(i)} selectedColor={selectedColor} />
             ))}

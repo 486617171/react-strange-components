@@ -1,7 +1,7 @@
 import React, { LegacyRef } from 'react';
 import { createSelectable } from 'react-selectable-fast';
 import { TimePeriodSelectorProps } from '..';
-import styles from './index.less';
+import './index.css';
 
 type Props = {
   value: number;
@@ -15,7 +15,7 @@ const Item = (props: Props) => {
   const { selectableRef, selected, selectedColor } = props;
   return (
     <div
-      className={styles.item}
+      className={'item'}
       style={selected ? { background: selectedColor || '#03a9f4' } : undefined}
       ref={selectableRef}
     />
