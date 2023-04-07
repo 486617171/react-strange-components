@@ -68,7 +68,7 @@ export default (props: TimePeriodSelectorProps) => {
     // @ts-ignore
     <SelectableGroup
       style={style}
-      className={cs('selectableGroup', className)}
+      className={cs('time-period-selector', className)}
       enableDeselect
       onSelectionFinish={onSelectionFinish}
     >

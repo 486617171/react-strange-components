@@ -33,20 +33,20 @@ const List = ({ value, selectedColor }: Props) => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="wrapper">
-        <div className="left">
+    <div className="time-period-selector-container">
+      <div className="time-period-selector-wrapper">
+        <div className="time-period-selector-wrapper-left">
           {weeks.map((item) => (
             <div key={item}>{item}</div>
           ))}
         </div>
-        <div className="right">
-          <div className="timeTips">
+        <div className="time-period-selector-wrapper-right">
+          <div className="time-period-selector-wrapper-tips">
             {timeTips.map((item) => (
               <div key={item}>{item}:00</div>
             ))}
           </div>
-          <div className="list">
+          <div className="time-period-selector-wrapper-list">
             {data.map((i) => (
               <Item key={i} value={i} selected={value.includes(i)} selectedColor={selectedColor} />
             ))}

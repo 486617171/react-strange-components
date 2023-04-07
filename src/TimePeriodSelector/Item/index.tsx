@@ -15,7 +15,7 @@ const Item = (props: Props) => {
   const { selectableRef, selected, selectedColor } = props;
   return (
     <div
-      className={'item'}
+      className={'time-period-selector-wrapper-list-item'}
       style={selected ? { background: selectedColor || '#03a9f4' } : undefined}
       ref={selectableRef}
     />

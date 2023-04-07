@@ -1,8 +1,8 @@
-.selectableGroup {
+.time-period-selector {
   user-select: none;
 }
 
-.selectableGroup .selectable-selectbox {
+.time-period-selector .selectable-selectbox {
   background: none;
   border: 1px dashed grey;
   cursor: default;
