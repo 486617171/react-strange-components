@@ -59,7 +59,11 @@ const imgList = [
   },
 ];
 
-export default () => <Carousel imgList={imgList} />;
+const seeMore = (item) => {
+  console.log(item, 'item');
+};
+
+export default () => <Carousel imgList={imgList} seeMore={seeMore} />;
 ```
 
 <!-- 自动生成API表格 -->

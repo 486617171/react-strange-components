@@ -3,6 +3,7 @@ import '../assets/style/carousel.less';
 
 type DemoProps = {
   imgList: Item[];
+  seeMore: () => {};
 };
 type Item = {
   id: number;
@@ -12,7 +13,7 @@ type Item = {
 };
 
 // 这是一个demo
-export default ({ imgList }: DemoProps) => {
+export default ({ imgList, seeMore }: DemoProps) => {
   /**上一张图片**/
   const previousImage = () => {
     const panel = document.getElementsByClassName('panel');
@@ -24,9 +25,6 @@ export default ({ imgList }: DemoProps) => {
     const panel = document.getElementsByClassName('panel');
     const items = document.getElementsByClassName('item');
     panel[0].appendChild(items[0]);
-  };
-  const seeMore = (item: Item) => {
-    console.log(item, 'item');
   };
 
   return (

@@ -16,6 +16,11 @@ type DemoProps = {
    * @default 需要展示的图片地址
    */
   src: string;
+  /**
+   * @description 查看更多方法
+   * @default 查看更多方法
+   */
+  seeMore: () => {};
 };
 
 // 这是一个demo
