@@ -42,7 +42,7 @@ import React, { useState } from 'react';
 import { TimePeriodSelector } from 'react-strange-components';
 
 export default () => {
-  const [value, setValue] = useState<number[]>([0, 1]);
+  const [value, setValue] = useState<number[]>([0, 24, 48, 72, 96, 120, 144]);
 
   return (
     <TimePeriodSelector
@@ -72,7 +72,7 @@ export default () => {
       style={{ width: 500, margin: '0 auto' }}
       value={value}
       onChange={(val) => {
-        setValue(val);
+        setValue([val]);
       }}
       selectedColor="yellow"
     />

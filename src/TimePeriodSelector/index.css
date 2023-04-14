@@ -1,9 +1,39 @@
-.selectableGroup {
+.time-period-selector {
   user-select: none;
+  font-size: 12px;
 }
 
-.selectableGroup .selectable-selectbox {
+.time-period-selector .selectable-selectbox {
   background: none;
   border: 1px dashed grey;
   cursor: default;
+}
+
+.time-period-selector .time-period-selector-footer {
+  display: flex;
+  height: 30px;
+  margin-top: 10px;
+}
+.time-period-selector .time-period-selector-footer .time-period-selector-footer-tip {
+  width: 50px;
+  line-height: 30px;
+  text-align: center;
+}
+.time-period-selector .time-period-selector-footer .time-period-selector-footer-list {
+  display: grid;
+  flex: 1;
+  grid-template-rows: repeat(1, 30px);
+  grid-template-columns: repeat(24, 4.16%);
+}
+.time-period-selector .time-period-selector-footer .time-period-selector-footer-list > div {
+  border-top: 1px solid #c6c9cc;
+  border-bottom: 1px solid #c6c9cc;
+  border-left: 1px solid #c6c9cc;
+}
+.time-period-selector .time-period-selector-footer .time-period-selector-footer-list > div:last-child {
+  border-right: 1px solid #c6c9cc;
+}
+
+.time-period-selector .time-period-selector-footer .time-period-selector-footer-list .time-period-selector-footer-list-item{
+  background-color: #f5f7f8;
 }

@@ -1,9 +1,18 @@
-import React, { LegacyRef, useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { SelectableGroup } from 'react-selectable-fast';
 import List from './List';
 import './index.css';
 import { SelectableGroupValue } from './index.type';
-import { isArray, isInteger, isNumber, uniq } from 'lodash';
+import {
+  isArray,
+  isInteger,
+  isNumber,
+  range,
+  rangeRight,
+  union,
+  uniq,
+  xor,
+} from 'lodash';
 import { useDeepCompareEffect } from 'ahooks';
 import cs from 'classnames';
 
@@ -40,14 +49,78 @@ export default (props: TimePeriodSelectorProps) => {
   const { value, onChange, className, style, selectedColor } = props;
 
   const [selected, setSelected] = useState<SelectableGroupValue>([]);
+  const [selectCol, setSelectCol] = useState<SelectableGroupValue>([]);
 
-  const onSelectionFinish = (selectedItem: React.Component<{ value: number }>[]) => {
-    const values = selectedItem.map((item) => item.props.value);
+  const ref = useRef<any>();
+
+  const valueChange = (val: number[]) => {
+    setSelected(val);
     if (onChange) {
-      onChange(values);
+      onChange(val);
     }
-    if (!value) {
-      setSelected(values);
+  };
+
+  const computeValueToCol = (val: number[]) => {
+    const row: number[] = range(0, 7);
+    const col: number[] = range(0, 24);
+    const selectCols: number[] = [];
+    col.forEach((i) => {
+      const arr: number[] = [];
+      row.forEach((j) => {
+        arr.push(i + j * 24);
+      });
+      if (arr.every((c) => val.includes(c))) {
+        selectCols.push(i + 168);
+      }
+    });
+    setSelectCol(selectCols);
+  };
+
+  const onSelectionFinish = (
+    selectedItem: React.Component<{ value: number }>[],
+  ) => {
+    const values = selectedItem.map((item) => item.props.value);
+    valueChange(values);
+    computeValueToCol(values);
+  };
+
+  const onSelectColChange = (col: number) => {
+    const weeks: number[] = range(1, 8);
+    const values: number[] = weeks.map((i) => col - i * 24);
+
+    let newValues: number[] = [];
+
+    if (selectCol.includes(col)) {
+      // 删除
+      newValues = xor(selected, values);
+    } else {
+      // 新增
+      newValues = union(selected, values);
+    }
+    valueChange(newValues);
+    controlSelectedValues(newValues);
+    setSelectCol(xor(selectCol, [col]));
+  };
+
+  const controlSelectedValues = (indexs: number[]) => {
+    try {
+      const items: any[] = Array.from(ref.current?.registry);
+      const newValues: any[] = [];
+      items.forEach((item, index) => {
+        if (indexs.includes(index)) {
+          if (!item.state.isSelected) {
+            item.setState({ isSelected: true });
+          }
+          newValues.push(item);
+        } else {
+          if (item.state.isSelected) {
+            item.setState({ isSelected: false });
+          }
+        }
+      });
+      ref.current.selectedItems = new Set(newValues);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -60,19 +133,43 @@ export default (props: TimePeriodSelectorProps) => {
       if (!value.every((i) => isNumber(i) && isInteger(i) && i < 168)) {
         throw new Error('value包含无效值');
       }
-      setSelected(uniq(value));
+      const uniqValue = uniq(value);
+      setSelected(uniqValue);
+      controlSelectedValues(uniqValue);
+      computeValueToCol(uniqValue);
     }
   }, [value]);
 
   return (
-    // @ts-ignore
-    <SelectableGroup
-      style={style}
-      className={cs('selectableGroup', className)}
-      enableDeselect
-      onSelectionFinish={onSelectionFinish}
-    >
-      <List value={selected} selectedColor={selectedColor} />
-    </SelectableGroup>
+    <div className={cs('time-period-selector', className)} style={style}>
+      {/* @ts-ignore */}
+      <SelectableGroup
+        ref={ref}
+        className="time-period-selector-main"
+        enableDeselect
+        onSelectionFinish={onSelectionFinish}
+      >
+        <List selectedColor={selectedColor} />
+      </SelectableGroup>
+      <div className="time-period-selector-footer">
+        <div className="time-period-selector-footer-tip">每天</div>
+        <div className="time-period-selector-footer-list">
+          {range(168, 192).map((i) => (
+            <div
+              className="time-period-selector-footer-list-item"
+              style={
+                selectCol.includes(i)
+                  ? { background: selectedColor || '#03a9f4' }
+                  : undefined
+              }
+              key={i}
+              onClick={() => {
+                onSelectColChange(i);
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
