@@ -45,7 +45,7 @@
     "gh-pages": "^5.0.0",
     "lodash": "^4.17.21",
     "pre-commit": "^1.2.2",
-    "react": "^18.2.0",
+    "react": "^18.0.0",
     "react-selectable-fast": "^3.4.0"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "@umijs/fabric": "^2.8.1",
     "@umijs/test": "^3.0.5",
     "dumi": "^1.1.0",
-    "father": "^2.30.23",
+    "father": "^4.0.0-rc.2",
     "husky": "^8.0.3",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1"
