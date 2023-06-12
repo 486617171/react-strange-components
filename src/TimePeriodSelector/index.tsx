@@ -44,7 +44,6 @@ export type TimePeriodSelectorProps = {
   className?: string;
 };
 
-// 这是一个demo
 export default (props: TimePeriodSelectorProps) => {
   const { value, onChange, className, style, selectedColor } = props;
 
