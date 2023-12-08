@@ -1,0 +1,68 @@
+.react-strange-text-folding-wrapper {
+  display: flex;
+  overflow: hidden;
+  .react-strange-text-folding-controller {
+    display: none;
+    &:checked + .react-strange-text-folding-content {
+      max-height: none !important;
+    }
+    &:checked + .react-strange-text-folding-content::after {
+      visibility: hidden;
+    }
+    &:checked
+      + .react-strange-text-folding-content
+      .react-strange-text-folding-action::before {
+      visibility: hidden;
+    }
+    &:checked
+      + .react-strange-text-folding-content
+      .react-strange-text-folding-action::after {
+      content: attr(data-retract);
+    }
+  }
+  .react-strange-text-folding-content {
+    position: relative;
+    overflow: hidden;
+    text-align: justify;
+    text-overflow: ellipsis;
+    transition: 0.3s max-height;
+
+    --height: calc(100% - 1em);
+
+    &::before {
+      float: right;
+      height: var(--height);
+      content: '';
+    }
+    &::after {
+      position: absolute;
+      width: 999vw;
+      height: 999vw;
+      margin-left: -100px;
+      box-shadow: inset calc(100px - 999vw) calc(30px - 999vw) 0 0 #fff;
+      content: '';
+    }
+
+    .react-strange-text-folding-action {
+      position: relative;
+      float: right;
+      clear: both;
+      margin-left: 20px;
+      padding: 0 8px;
+      color: #00e;
+      font-size: 1em;
+      cursor: pointer;
+
+      &::after {
+        content: attr(data-expand);
+      }
+      &::before {
+        position: absolute;
+        left: -5px;
+        color: #333;
+        transform: translateX(-100%);
+        content: '...';
+      }
+    }
+  }
+}
