@@ -11,6 +11,7 @@ const HomePage = ({}: Props) => {
         <ul>
           <li>时间周期选择器</li>
           <li>表情选择器</li>
+          <li>文字展开收起</li>
         </ul>
       </div>
     </div>
